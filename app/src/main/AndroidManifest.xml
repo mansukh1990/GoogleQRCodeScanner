@@ -16,6 +16,15 @@
         android:theme="@style/Theme.GoogleQrScanner"
         tools:targetApi="31">
         <activity
+            android:name=".QRCodeGenerator"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".QrScannerZxing"
             android:exported="true">
             <intent-filter>
@@ -26,13 +35,21 @@
         </activity>
         <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="fullSensor"
+            tools:replace="screenOrientation" />
+        
+        <provider
+            android:authorities="${applicationId}.provider"
+            android:name="androidx.core.content.FileProvider"
+            android:grantUriPermissions="true"
             android:exported="false">
-        </activity>
-        <activity android:name="com.journeyapps.barcodescanner.CaptureActivity"
-            android:screenOrientation="portrait"
-            tools:replace="screenOrientation">
-
-        </activity>
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
     </application>
 
 </manifest>
