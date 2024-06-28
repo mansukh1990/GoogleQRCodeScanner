@@ -47,4 +47,5 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.google.scanner)
     implementation(libs.play.services)
+    implementation(libs.qr.scanner)
 }
